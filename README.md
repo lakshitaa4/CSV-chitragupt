@@ -31,11 +31,10 @@ Each row represents a transaction with columns like:
 - **Python**
 - **LangChain**
 - **LangGraph**
-- **Gemini LLM** (or **OpenAI LLM**)
+- **Gemini LLM** 
 - **Pandas**
-- **Streamlit / CLI (optional frontend for user input/output)**
-- **ChromaDB / VectorDB** (optional)
-- **Docker** (for deployment, if needed)
+- **CLI 
+- **ChromaDB
 
 ---
 
