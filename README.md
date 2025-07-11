@@ -1,4 +1,4 @@
-<h1 align='center'> Avatar of Chitragupt </h1>
+<h1 align='center'> Chitragupt’s Great-Grandkid 🖋 </h1>
 
 <h2 align='center'>Your Personal AI Scribe for Data Analysis.</h2>
 
