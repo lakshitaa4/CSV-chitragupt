@@ -1,117 +1,157 @@
-# CSV Chitragupt
+<h1 align='center'> Avatar of Chitragupt </h1>
 
----
+<h2 align='center'>Your Personal AI Scribe for Data Analysis.</h2>
 
-## Overview
+<h2 align='center'><b>Chitragupt</b> is an intelligent, conversational web application that lets you perform complex data analysis on any CSV file simply by asking questions in plain English. </h2>
 
-This project implements a **Recursive Question Decomposer** capable of answering **complex, multi-layered analytical questions** over a **convenience store sales dataset**.  
+* * * * *
 
-Using **LangGraph for stateful orchestration** and an **LLM (Gemini or OpenAI)** for decision-making and synthesis, the system recursively decomposes complex questions into atomic sub-questions, answers each using **Pandas data queries**, and aggregates a final human-readable response.
+🚀 Live Demo
+------------
 
----
+* * * * *
 
-## Dataset Details
+✨ Features
+----------
 
-The system works on a **CSV file** containing convenience store sales data.  
-Each row represents a transaction with columns like:
+-   **Sophisticated Question Decomposition:** Powered by **LangGraph**, Chitragupt can break down complex multi-part questions into simpler atomic sub-questions. For example: *"Which store was most profitable, and what was its best-selling product?"*
 
-- `store_name`
-- `department`
-- `revenue`
-- `quantity`
-- `profit`
-- *(More columns may exist depending on the dataset)*
+-   **Interactive Chat UI:** An intuitive, chat-based interface built with **Streamlit** lets you engage with your data effortlessly.
 
-> _Note: A sample CSV or dataframe preview can be found inside the notebook._
+-   **Analyze Any CSV:** Upload any tabular dataset and start querying instantly. The app is completely data-agnostic.
 
----
+-   **Natural Language Answers:** Chitragupt queries your data using **Pandas** in the background and synthesizes the findings into clear, human-friendly responses.
 
-## Tech Stack & Tools Used
+-   **Transparent Reasoning:** See every sub-question and corresponding answer to understand the AI's thought process step-by-step.
 
-- **Python**
-- **LangChain**
-- **LangGraph**
-- **Gemini LLM** 
-- **Pandas**
-- **Streamlit**
+-   **Dynamic Model Selection:** Choose between different **Google Gemini** models (`gemini-1.5-pro`, `gemini-1.5-flash`, etc.) for faster responses or deeper analysis.
 
----
+-   **Stateful Sessions:** The app remembers your conversation until you upload a new file, at which point it resets for a fresh analysis session.
 
-## System Architecture / Node Flow
+* * * * *
 
-```plaintext
-[Start Node]
-     ↓
-[Complexity Decision Node] → (Is question Atomic or Complex?)
-     ↓
-If Complex → [Decomposition Node] → [Resolver Node] → Loop
-If Atomic → [Resolver Node] → Loop
-     ↓
-[Aggregator Node] → Final Answer
+🛠️ Tech Stack & Tools
+----------------------
+
+-   **Python**
+
+-   **Streamlit** 
+
+-   **LangChain & LangGraph** 
+
+-   **Google Gemini API** 
+
+-   **Pandas** 
+
+* * * * *
+
+🧠 How It Works: The Recursive Engine
+-------------------------------------
+
 ```
---- 
+[Start: User asks a question]
+              ↓
+[Complexity Node: Atomic or Complex?]
+       ↙            ↘
+ [Decomposition]    [Resolver Node]
+       ↓                   ↑
+[Resolver Node] ←-----------|
+       ↓
+   [Aggregator Node]
+       ↓
+      [End]
 
-## Node Responsibilities
+```
+
+### Node Functions:
+
 | Node | Function |
-|:-----|:---------|
-| Start Node | Initializes execution and logs the starting state. |
-| Complexity Decision Node | Uses LLM to classify if a question is Atomic or Complex. |
-| Decomposition Node | Breaks down complex questions into sequential atomic sub-questions using LLM-driven few-shot prompting. |
-| Resolver Node | Answers atomic questions by querying the Pandas dataframe (acts as a Pandas Data Agent). |
-| Aggregator Node	| Synthesizes all sub-question answers into a final answer using LLM summarization. |
-| Memoization Cache	| Caches already answered sub-questions to avoid redundant computation. |
+| --- | --- |
+| **Complexity Node** | Uses Gemini to classify if the question is simple (Atomic) or complex. |
+| **Decomposition Node** | Breaks complex queries into a sequence of atomic sub-questions. |
+| **Resolver Node** | Uses **Pandas** to answer atomic questions by executing code. |
+| **Aggregator Node** | Synthesizes multiple answers into a coherent final answer for the user. |
+| **Memoization Cache** | Caches answers to speed up repeated queries. |
 
---- 
+* * * * *
 
-## How to Run
-* Set up your LLM API key:
-  - Configure your .env file or environment variables for Gemini/OpenAI.
+⚙️ How to Run Locally
+---------------------
 
-* Load your CSV Dataset
-  - The notebook already reads and loads the dataset using Pandas.
+### Prerequisites
 
-* Run the Notebook
-  - Open the .ipynb file and run all cells sequentially.
+-   Python 3.9+
 
-* Ask your Analytical Question
-  - The system will prompt for user input (via CLI in notebook).
+-   Google Gemini API Key
 
----
+### 1\. Clone the Repository
 
-## Output Format
-```json
-{
-  "original_question": "...",
-  "final_answer": "...",
-  "sub_questions_and_answers": {
-    "Sub-question 1": "Answer 1",
-    "Sub-question 2": "Answer 2"
-  },
-  "logs": [
-    {"step": "Start", "input": "...", "output": "..."},
-    {"step": "Complexity Decision", "input": "...", "output": "..."},
-    ...
-  ]
-}
+```
+git clone [your-repo-url]
+cd [your-repo-folder]
+
 ```
 
----
+### 2\. Set Up a Virtual Environment
 
-## Example Questions Supported
-- Which product category had the highest revenue in Q1 2023 across all stores?
-- Which store had the highest average basket size in March 2023?
-- What are the top-selling products by revenue in each store?
-- Did sales increase or decrease for beverages from January to June 2023?
-- Which store had the highest profit, and what was the revenue for the 'CO : HOT FOOD' department in that store?
+#### Windows
 
----
+```
+python -m venv .venv
+.\.venv\Scripts\activate
 
-## Features Implemented
-* Recursive, LLM-driven question decomposition
-* Atomic sub-question resolution via Pandas
-* Aggregated, user-friendly final answer generation
-* JSON-structured output with reasoning logs (forming the tree like structure)
-* Memoization / Caching for repeated sub-questions
-* CLI-based user interaction 
+```
 
----
+#### macOS / Linux
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+
+```
+
+### 3\. Install Dependencies
+
+```
+pip install -r requirements.txt
+
+```
+
+### 4\. Run the Streamlit App
+
+```
+streamlit run app.py
+
+```
+
+Your browser will open automatically with the app running locally.
+
+* * * * *
+
+❓ Example Questions You Can Ask:
+--------------------------------
+
+-   Which department had the highest total revenue, and what was its average profit margin?
+
+-   Compare the total quantity sold for 'Product A' vs 'Product B'.
+
+-   What are the top 3 stores by total profit?
+
+-   For the store with the highest revenue, what were its top 5 selling items by quantity?
+
+-   Which store had the highest profit, and what was the revenue for the 'CO : HOT FOOD' department in that store?
+
+* * * * *
+
+📌 Notes:
+---------
+
+-   You can select the model (`pro` or `flash`) based on your need for speed vs. depth.
+
+-   The app auto-resets when you upload a new CSV to ensure accuracy.
+
+* * * * *
+
+Made with ❤️ for data storytellers.
+
+* * * * *
