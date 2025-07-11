@@ -116,11 +116,11 @@ def should_continue(state: GraphState) -> str:
 
 # --- Streamlit UI and Application Logic ---
 
-st.set_page_config(page_title="Chitragupt", layout="wide")
+st.set_page_config(page_title="Chitragupt’s Great-Grandkid", layout="wide")
 
 st.markdown(
     """<div style="text-align: center;">
-    <h1>AI Chitragupt</h1>
+    <h1>Chitragupt’s Great-Grandkid</h1>
     <h3>You might be Yamraj in this case😅<br>
     Well, I am your personal AI Scribe for Data Analysis</h3>
     <p>Upload a CSV file, and I will keep a complete record of its contents, ready to answer any complex question you have.</p>
