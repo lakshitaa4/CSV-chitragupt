@@ -33,8 +33,7 @@ Each row represents a transaction with columns like:
 - **LangGraph**
 - **Gemini LLM** 
 - **Pandas**
-- **CLI 
-- **ChromaDB
+- **Streamlit**
 
 ---
 
