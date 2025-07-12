@@ -88,8 +88,8 @@
 ### 1\. Clone the Repository
 
 ```
-git clone [your-repo-url]
-cd [your-repo-folder]
+git clone https://github.com/lakshitaa4/Chitragupt.s-Great-Grandkid
+cd Chitragupt.s-Great-Grandkid
 
 ```
 
@@ -129,7 +129,7 @@ Your browser will open automatically with the app running locally.
 
 * * * * *
 
-❓ Example Questions You Can Ask:
+Example Questions You Can Ask:
 --------------------------------
 
 -   Which department had the highest total revenue, and what was its average profit margin?
@@ -144,10 +144,10 @@ Your browser will open automatically with the app running locally.
 
 * * * * *
 
-📌 Notes:
+Notes:
 ---------
 
--   You can select the model (`pro` or `flash`) based on your need for speed vs. depth.
+-   You can select the model (`1.5` or `2.5`) based on your need for speed vs. depth.
 
 -   The app auto-resets when you upload a new CSV to ensure accuracy.
 
@@ -156,3 +156,5 @@ Your browser will open automatically with the app running locally.
 Made with ❤️ for data storytellers.
 
 * * * * *
+
+If you use this code, credit would be appreciated. 
